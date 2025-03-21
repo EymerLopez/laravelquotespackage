@@ -1,0 +1,39 @@
+{
+    "name": "eymer/laravelquotes",
+    "description": "Package for consuming test api dummyjson",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Eymer\\LaravelQuotes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eymer\\LaravelQuotes\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Eymer",
+            "email": "eymer1235@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/framework": "^12.0",
+        "inertiajs/inertia-laravel": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "orchestra/testbench": "^10",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.1",
+        "mockery/mockery": "^1.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}

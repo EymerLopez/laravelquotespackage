@@ -1,0 +1,24 @@
+{
+  "name": "laravelquotes",
+  "version": "1.0.0",
+  "description": "Package for consuming api test dummyjson",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite"
+  },
+  "author": "Eymer Lopez",
+  "license": "ISC",
+  "dependencies": {
+    "@inertiajs/vue3": "^2.0.5",
+    "@tailwindcss/vite": "^4.0.15",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.15",
+    "vite": "^6.2.2"
+  }
+}
