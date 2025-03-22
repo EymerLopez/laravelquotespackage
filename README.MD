@@ -10,7 +10,7 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
 
 ## Instalación
 
-1. Crear una carpeta en el repositorio de un proyecto llamada `packages`, dentro de ella crear otra llamada `laravel-quotes`
+1. Crear una carpeta en el repositorio de un proyecto llamada `packages`, dentro de ella crear otra llamada `laravelquotes` o clona este repositorio en esa carpeta
 
 2. Añadir en `composer.json` del proyecto principal:
 ```json
@@ -27,7 +27,7 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
 3. Añadir en `composer.json` del proyecto principal:
 ```json
 "require": {
-    "eymer/laravelquotes": "dev-main",
+    "eymer/laravelquotes": "dev-master",
 },
 ```
 4. Ejecutar `composer update`
