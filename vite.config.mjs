@@ -11,12 +11,19 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/app.css',
             ],
-            refresh: true,
+            refresh: false,
         }),
         tailwindcss(),
         vue(),
     ],
     build: {
         outDir: 'dist',
+        manifest: false,
+        rollupOptions: {
+            output: {
+                assetFileNames: 'assets/[name].[ext]',
+                entryFileNames: 'assets/[name].js'
+            }
+        }
     }
 });

@@ -1,10 +1,11 @@
-{{ Vite::useBuildDirectory('vendor/laravelquotes')->withEntryPoints(['resources/js/app.js', 'resources/css/app.css']) }}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <title>Laravel quotes</title>
+        <link rel="stylesheet" href="{{ asset('vendor/laravelquotes/assets/app.css') }}">
+        <script src="{{ asset('vendor/laravelquotes/assets/app.js') }}" defer></script>
         @inertiaHead
     </head>
     <body class="font-sans antialiased">
