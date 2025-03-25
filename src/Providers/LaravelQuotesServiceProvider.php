@@ -28,12 +28,9 @@ class LaravelQuotesServiceProvider extends ServiceProvider
 
             $this->publishes([
                 __DIR__.'/../config/quotes.php' => config_path('quotes.php'),
-            ]);
-
-            $this->publishes([
                 __DIR__ . '/../../resources/views' => resource_path('views/vendor/laravelquotes'),
                 __DIR__.'/../../dist' => public_path('vendor/laravelquotes'),
-            ], 'laravelquotes');
+            ], 'laravelquotes-assets');
         }
 
     }
