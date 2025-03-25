@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Eymer\\LaravelQuotes\\LaravelQuotesServiceProvider"
+                "Eymer\\LaravelQuotes\\Providers\\LaravelQuotesServiceProvider"
             ]
         }
     }
