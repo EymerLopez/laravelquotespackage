@@ -1,17 +1,21 @@
 # Laravel Quotes Package (Laravel 12)
 
-Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind CSS.
+<p style="text-align: center">
+    <a href="./LEAME.MD">Spanish / Español</a>
+</p>
 
-## Requisitos
+Package for displaying quotes with API integration, Inertia.js, VUE 3, and Tailwind CSS.
+
+## Requirements
 - PHP 8.2+
 - Laravel 12+
 - Node.js 22+
 - Composer 2.6+
 
-## Instalación
+## Installation
 
-1. Instala un proyecto Laravel 12+
-2. Edita el `composer.json` de la aplicación y añade el repositorio del paquete manualmente en la sección `repositories`
+1. Install a Laravel 12+ project.
+2. Edit the application's `composer.json` file and manually add the package repository in the `repositories` section:
 ```json
 ...
 "license": "MIT",
@@ -25,15 +29,15 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
 ...
 }
 ```
-3. Instalar el paquete ejecutando `composer require eymer/laravelquotes`
-4. Añade `\Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class` al `bootstrap/providers.php` de la aplicación si este no fue añadido automáticamente.
+3. Install the package by running `composer require eymer/laravelquotes`.
+4. Add `\Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class` to the application's `bootstrap/providers.php` if it was not added automatically.
 ```php
     return [
         App\Providers\AppServiceProvider::class,
         \Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class
     ];
 ```
-5. Añade al `bootstrap/app.php` el middleware de inertia dentro la función ``withMiddleware``
+5. Add the Inertia middleware to `bootstrap/app.php` inside the `withMiddleware` function.
 ```php
         ->withMiddleware(function (Middleware $middleware) {
             ...
@@ -43,29 +47,31 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
             ...
         })
 ```
-6. Publica los vendors para cargar las vistas y los archivos css y js
-`php artisan vendor:publish --provider="Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider" --tag=laravelquotes-assets --force`
-7. Prueba.
+6. Publish the vendors to load views and CSS and JS files.
+   `php artisan vendor:publish --provider="Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider" --tag=laravelquotes-assets --force`
+7. Test.
 
-## Configuración (`config/quotes.php`)
-* ``url``: Establece la url por defecto de la página a donde nos vamos a conectar
-* ``max_limit_attempts``: Establece por defecto cuántas solicitudes por IP el usuario puede realizar. Por defecto son 200.
-* ``max_limit_duration``: Establece por defecto el límite de tiempo en minutos antes de que el usuario pueda realizar solicitudes una vez alcanzado el máximo. Por defecto 1 minuto.
+## Configuration (`config/quotes.php`)
+* `url`: Sets the default URL of the page to which we will connect.
+* `max_limit_attempts`: Sets the default number of requests per IP the user can make. By default, it is 200.
+* `max_limit_duration`: Sets the default time limit in minutes before the user can make requests again once the maximum is reached. By default, it is 1 minute.
 
-## Rutas API (`api.php`)
-Prefijo: `/quotes`
+## API Routes (`api.php`)
+Prefix: `/quotes`
 
-| Método | URI                  | Acción                      | Descripción                          |
+| Method | URI                  | Action                      | Description                          |
 |--------|----------------------|----------------------------|--------------------------------------|
-| GET    | /quotes              | QuoteController@index      | Listado paginado de citas            |
-| GET    | /quotes/random       | QuoteController@random     | Obtener una cita aleatoria           |
-| GET    | /quotes/{id}         | QuoteController@show       | Obtener cita específica por ID       |
+| GET    | /quotes              | QuoteController@index      | Paginated list of quotes            |
+| GET    | /quotes/random       | QuoteController@random     | Get a random quote                   |
+| GET    | /quotes/{id}         | QuoteController@show       | Get a specific quote by ID           |
 
-## Rutas WEB (`web.php`)
-Prefijo: `/quotes-ui`
+## WEB Routes (`web.php`)
+Prefix: `/quotes-ui`
 
-| Método | URI               | Acción                     | Descripción                          |
+| Method | URI               | Action                     | Description                          |
 |--------|-------------------|----------------------------|--------------------------------------|
-| GET    | /quotes-ui        | QuoteViewController@index  | Listado paginado de citas            |
-| GET    | /quotes-ui/random | QuoteViewController@random | Obtener una cita aleatoria           |
-| GET    | /quotes-ui/{id}   | QuoteViewController@show   | Obtener cita específica por ID       |
+| GET    | /quotes-ui        | QuoteViewController@index  | Paginated list of quotes            |
+| GET    | /quotes-ui/random | QuoteViewController@random | Get a random quote                   |
+| GET    | /quotes-ui/{id}   | QuoteViewController@show   | Get a specific quote by ID           |
+
+---
