@@ -41,7 +41,10 @@
         "laravel": {
             "providers": [
                 "Eymer\\LaravelQuotes\\Providers\\LaravelQuotesServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "LaravelQuotes": "Eymer\\LaravelQuotes\\Facade"
+            }
         }
     }
 }

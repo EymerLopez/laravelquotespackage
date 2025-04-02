@@ -2,7 +2,7 @@
 
 namespace Eymer\LaravelQuotes\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 use Inertia\Inertia;
 
 class QuoteViewController extends Controller

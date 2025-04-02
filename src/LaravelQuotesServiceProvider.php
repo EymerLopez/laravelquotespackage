@@ -1,6 +1,6 @@
 <?php
 
-namespace Eymer\LaravelQuotes\Providers;
+namespace Eymer\LaravelQuotes;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -15,21 +15,21 @@ class LaravelQuotesServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Register routes
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/api.php');
 
         // Register config
-        $this->mergeConfigFrom(__DIR__.'/../config/quotes.php', 'quotes');
+        $this->mergeConfigFrom(__DIR__ . '/config/quotes.php', 'quotes');
 
         // Register views
-        $this->loadViewsFrom(__DIR__ . '/../views', 'laravelquotes');
+        $this->loadViewsFrom(__DIR__ . '/views', 'laravelquotes');
 
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__.'/../config/quotes.php' => config_path('quotes.php'),
-                __DIR__ . '/../../resources/views' => resource_path('views/vendor/laravelquotes'),
-                __DIR__.'/../../dist' => public_path('vendor/laravelquotes'),
+                __DIR__ . '/config/quotes.php' => config_path('quotes.php'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/laravelquotes'),
+                __DIR__ . '/../dist' => public_path('vendor/laravelquotes'),
             ], 'laravelquotes-assets');
         }
 

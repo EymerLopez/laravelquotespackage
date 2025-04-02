@@ -31,10 +31,11 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
 ```
 3. Instalar el paquete ejecutando `composer require eymer/laravelquotes`
 4. Añade `\Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class` al `bootstrap/providers.php` de la aplicación si este no fue añadido automáticamente.
+
 ```php
     return [
         App\Providers\AppServiceProvider::class,
-        \Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class
+        \Eymer\LaravelQuotes\LaravelQuotesServiceProvider::class
     ];
 ```
 5. Añade al `bootstrap/app.php` el middleware de inertia dentro la función ``withMiddleware``

@@ -3,7 +3,6 @@
 namespace Eymer\LaravelQuotes\Services;
 
 use Illuminate\Support\Facades\Cache;
-use League\CommonMark\Extension\SmartPunct\Quote;
 
 class QuoteCacheService
 {

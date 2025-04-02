@@ -2,8 +2,7 @@
 
 namespace Eymer\LaravelQuotes\Tests;
 
-
-use Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider;
+use Eymer\LaravelQuotes\LaravelQuotesServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

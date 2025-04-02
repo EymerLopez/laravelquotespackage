@@ -3,7 +3,6 @@
 namespace Eymer\LaravelQuotes\Services;
 
 use Eymer\LaravelQuotes\Exceptions\LaravelQuoteException;
-use Illuminate\Database\ConnectionInterface;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;

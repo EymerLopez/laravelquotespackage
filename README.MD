@@ -31,10 +31,11 @@ Package for displaying quotes with API integration, Inertia.js, VUE 3, and Tailw
 ```
 3. Install the package by running `composer require eymer/laravelquotes`.
 4. Add `\Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class` to the application's `bootstrap/providers.php` if it was not added automatically.
+
 ```php
     return [
         App\Providers\AppServiceProvider::class,
-        \Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class
+        \Eymer\LaravelQuotes\LaravelQuotesServiceProvider::class
     ];
 ```
 5. Add the Inertia middleware to `bootstrap/app.php` inside the `withMiddleware` function.
