@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Eymer\\LaravelQuotes\\Providers\\LaravelQuotesServiceProvider"
+                "Eymer\\LaravelQuotes\\LaravelQuotesServiceProvider"
             ],
             "aliases": {
                 "LaravelQuotes": "Eymer\\LaravelQuotes\\Facade"
