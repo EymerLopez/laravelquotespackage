@@ -2,6 +2,7 @@
 
 namespace Eymer\LaravelQuotes;
 
+use Eymer\LaravelQuotes\Console\Commands\LaravelQuoteInstall;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -21,16 +22,23 @@ class LaravelQuotesServiceProvider extends ServiceProvider
         // Register config
         $this->mergeConfigFrom(__DIR__ . '/config/quotes.php', 'quotes');
 
-        // Register views
-        $this->loadViewsFrom(__DIR__ . '/views', 'laravelquotes');
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/laravelquotes'),
+        ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../resources/js' => resource_path('vendor/laravelquotes/js'),
+            __DIR__.'/../resources/css' => resource_path('vendor/laravelquotes/css'),
+        ], 'assets');
+
+        $this->publishes([
+            __DIR__ . '/config/quotes.php' => config_path('quotes.php'),
+        ], 'config');
 
         if ($this->app->runningInConsole()) {
-
-            $this->publishes([
-                __DIR__ . '/config/quotes.php' => config_path('quotes.php'),
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/laravelquotes'),
-                __DIR__ . '/../dist' => public_path('vendor/laravelquotes'),
-            ], 'laravelquotes-assets');
+            $this->commands([
+                LaravelQuoteInstall::class,
+            ]);
         }
 
     }

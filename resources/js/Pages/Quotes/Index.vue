@@ -59,7 +59,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import axios from 'axios'
-import QuoteCard from '@/Components/QuoteCard.vue'
+import QuoteCard from '@laravelquotes/Components/QuoteCard.vue'
 
 
 const quotes = ref([])

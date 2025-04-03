@@ -30,15 +30,7 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
 }
 ```
 3. Instalar el paquete ejecutando `composer require eymer/laravelquotes`
-4. Añade `\Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider::class` al `bootstrap/providers.php` de la aplicación si este no fue añadido automáticamente.
-
-```php
-    return [
-        App\Providers\AppServiceProvider::class,
-        \Eymer\LaravelQuotes\LaravelQuotesServiceProvider::class
-    ];
-```
-5. Añade al `bootstrap/app.php` el middleware de inertia dentro la función ``withMiddleware``
+4. Añade al `bootstrap/app.php` el middleware de inertia dentro la función ``withMiddleware``
 ```php
         ->withMiddleware(function (Middleware $middleware) {
             ...
@@ -48,9 +40,64 @@ Paquete para mostrar citas con integración de API, Inertia.js, VUE 3 y Tailwind
             ...
         })
 ```
-6. Publica los vendors para cargar las vistas y los archivos css y js
-`php artisan vendor:publish --provider="Eymer\LaravelQuotes\Providers\LaravelQuotesServiceProvider" --tag=laravelquotes-assets --force`
-7. Prueba.
+5. Publica los archivos necesarios para compilar los assets y vistas del paquete con el siguiente comando:
+```bash
+    php artisan laravelquotes:install
+```
+5. Instala las dependencias js. Laravel 12 por defecto viene con Tailwinds CSS y VITE por lo que no es necesario instalarlas, así que instalaremos lo siguiente:
+```bash
+    npm install @inertiajs/vue3  
+    npm install @vitejs/plugin-vue  
+```
+6. Importa al `resources/js/app.js` de la aplicación el `app.js` del paquete
+```js
+    import './bootstrap';
+    ...
+    import './../vendor/laravelquotes/js/app.js';
+    ...
+```
+7. Importa al `resources/js/app.css` de la aplicación el `app.css` del paquete
+```scss
+    @import 'tailwindcss';
+    ...
+    @import '../vendor/laravelquotes/css/app.css';
+    ...
+```
+8. Importa y añade al `vite.config.js` de la aplicación los plugins de Vue y Tailwind (si no está importado).
+```js
+    import { defineConfig } from 'vite';
+    ...
+    import tailwindcss from '@tailwindcss/vite';
+    import vue from '@vitejs/plugin-vue';
+```
+- Configura los plugin y alias en el `vite.config.js` de la aplicación:
+```js
+    plugins: [
+        laravel({
+            ...
+        }),
+        ...
+        tailwindcss(),
+        vue(),
+    ],
+``` 
+- Añade un alias.
+```js
+    plugins: [
+        ...
+    ],
+    resolve: {
+        alias: {
+            '@laravelquotes': '/resources/vendor/laravelquotes/js',
+        },
+    },
+```
+- El archivo debería verse algo similar a lo siguiente:
+
+  ![Vite Config Example](images/final_vite_config.png)
+
+9. Ejecuta el comando ``npm run build`` para compilar los assets.
+10. Prueba.
 
 ## Configuración (`config/quotes.php`)
 * ``url``: Establece la url por defecto de la página a donde nos vamos a conectar
@@ -74,3 +121,13 @@ Prefijo: `/quotes-ui`
 | GET    | /quotes-ui        | QuoteViewController@index  | Listado paginado de citas            |
 | GET    | /quotes-ui/random | QuoteViewController@random | Obtener una cita aleatoria           |
 | GET    | /quotes-ui/{id}   | QuoteViewController@show   | Obtener cita específica por ID       |
+
+## Customización
+
+Al momento de publicar el paquete se generan lo archivos css y js dentro la carpeta "resources/vendor/laravelquotes"
+- Dentro de la carpeta "css" está el archivo "app.css" donde puedes modificar estilos
+- Dentro de la carpeta "js" están los componentes y páginas que hace uso el paquete. Además, se encuentra el archivo "app.js" que es donde crea la app con Inertia.
+
+Adicionalmente en "resources/views/vendor/laravelquotes" se almacena el archivo "app.blade.php" el cual sirve como la plantilla principal. Dicho archivo puede ser personalizado a gusto.
+
+Una vez finalizada la customización recuerda ejecutar nuevamente el comando ``npm run build`` para compilar los assets.

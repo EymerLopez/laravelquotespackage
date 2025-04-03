@@ -21,7 +21,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
-import QuoteCard from '@/Components/QuoteCard.vue'
+import QuoteCard from '@laravelquotes/Components/QuoteCard.vue'
 
 const props = defineProps({
     id: {
